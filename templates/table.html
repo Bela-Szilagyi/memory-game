@@ -12,14 +12,15 @@
 
 <h1>Memory game</h1>
 
-    <form action="/" method="post">
-        <input type="submit" value="continue" id="continue" name="continue">
+    <!-- <form action="/" method="post">
+        <input type="submit" value="continue" id="continue" name="continue"> -->
+        <p> {{ found }} </>
 
         <table border=1 >
             {% for row in range(rows) %}
                 <tr>   
                     {% for cell in range(rows) %}
-                        <td> <a href="/"> <img src={{ url_for("static", filename=table[rows*row+cell]+'.jpg' ) }} width="128" height="128" > </a> </td>
+                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell]|string)+'.jpg' ) }} width="128" height="128" > </a> </td>
                    {% endfor %}
                 </tr>
             {% endfor %}
