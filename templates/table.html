@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+   <title> Memory game </title>
+
+</head>
+
+<body>
+
+<h1>Memory game</h1>
+
+    <form action="/" method="post">
+        <input type="submit" value="continue" id="continue" name="continue">
+
+        <table border=1 >
+            {% for row in range(rows) %}
+                <tr>   
+                    {% for cell in range(rows) %}
+                        <td> - </td>  
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+    </form>
+
+</body>
+
+</html>

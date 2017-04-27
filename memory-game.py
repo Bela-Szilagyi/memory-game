@@ -1,17 +1,11 @@
 import random
+from flask import Flask, render_template, request, redirect
+app = Flask(__name__)
 
-animals = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine', 
+
+animals = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine',
            'dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine']
 # animals = ['dog', 'cat', 'dog', 'cat']
-
-
-def print_table(table_to_print):
-    rows = int(len(animals) ** 0.5)
-    for row in range(rows):
-        for cell in range(rows):
-            print(table_to_print[rows*row+cell], ' ', end='')
-        print()
-    return
 
 animals = random.sample(animals, len(animals))
 animals_dict = {}
@@ -20,10 +14,24 @@ for index, animal in enumerate(animals):
 # print(animals_dict)
 table = []
 for i in range(len(animals)):
-    table.append('-')
-print_table(table)
+    table.append('0.jpg')
+rows = int(len(animals) ** 0.5)
+# print_table(table)
 first_guess = True
 found = 0
+
+
+'''
+def print_table(table_to_print):
+    rows = int(len(animals) ** 0.5)
+    for row in range(rows):
+        for cell in range(rows):
+            print(table_to_print[rows*row+cell], ' ', end='')
+        print()
+    return
+'''
+
+'''
 while found < int(len(animals)/2):
     guess = -1
     while guess < 0 or guess > len(table)-1 or table[guess] != '-' or (not first_guess and guess == first):
@@ -60,3 +68,16 @@ while found < int(len(animals)/2):
                 first_guess = True
                 continue
 print('You won!')
+'''
+
+
+@app.route('/', methods=['GET', 'POST'])
+def list():
+    if request.method == "POST":
+        return add_new_story()
+    else:
+        return render_template('table.html', table=table, rows=rows)
+
+
+if __name__ == '__main__':
+    app.run()
