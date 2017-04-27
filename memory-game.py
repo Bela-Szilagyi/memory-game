@@ -14,7 +14,7 @@ for index, animal in enumerate(animals):
 # print(animals_dict)
 table = []
 for i in range(len(animals)):
-    table.append('0.jpg')
+    table.append('0')
 rows = int(len(animals) ** 0.5)
 # print_table(table)
 first_guess = True

@@ -19,8 +19,8 @@
             {% for row in range(rows) %}
                 <tr>   
                     {% for cell in range(rows) %}
-                        <td> - </td>  
-                    {% endfor %}
+                        <td> <a href="/"> <img src={{ url_for("static", filename=table[rows*row+cell]+'.jpg' ) }} width="128" height="128" > </a> </td>
+                   {% endfor %}
                 </tr>
             {% endfor %}
         </table>
