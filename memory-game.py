@@ -1,11 +1,12 @@
 import random
 
-# animals = ['dog', 'cat', 'hippo', 'bunny', 'dog', 'cat', 'hippo', 'bunny']
-animals = ['dog', 'cat', 'dog', 'cat']
+animals = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine', 
+           'dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine']
+# animals = ['dog', 'cat', 'dog', 'cat']
 
 
 def print_table(table_to_print):
-    rows = int(len(animals)/2)
+    rows = int(len(animals) ** 0.5)
     for row in range(rows):
         for cell in range(rows):
             print(table_to_print[rows*row+cell], ' ', end='')
@@ -16,7 +17,7 @@ animals = random.sample(animals, len(animals))
 animals_dict = {}
 for index, animal in enumerate(animals):
     animals_dict[index] = animal
-print(animals_dict)
+# print(animals_dict)
 table = []
 for i in range(len(animals)):
     table.append('-')
