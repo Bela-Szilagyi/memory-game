@@ -50,7 +50,7 @@ background-color: #fff;
 .main {
 background-color: #F7D08A;
 margin-left: 10px;
-margin-right: 320px;
+margin-right: 10px;
 margin-top: 10px;
 margin-bottom: 10px;
 border-radius: 5px;
@@ -62,7 +62,7 @@ font-size: 110%;
 background-color: #F7D08A;
 font-size: 105%;
 padding: 20px;
-width:260px;
+width:180px;
 float: right;
 border-radius: 5px;
 margin-left:10px; margin-right:10px; margin-top:0px; margin-bottom:10px;;
