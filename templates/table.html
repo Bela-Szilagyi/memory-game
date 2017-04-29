@@ -14,13 +14,13 @@
 
     <!-- <form action="/" method="post">
         <input type="submit" value="continue" id="continue" name="continue"> -->
-        <p> {{ found }} </>
+        <p> found: {{ found }} first_guess: {{first_guess}} first_guessed_animal: {{first_guessed_animal}} second_guessed_animal: {{second_guessed_animal}}</>
 
         <table border=1 >
             {% for row in range(rows) %}
                 <tr>   
                     {% for cell in range(rows) %}
-                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell]|string)+'.jpg' ) }} width="128" height="128" > </a> </td>
+                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell][:-1]|string)+'.jpg' ) }} width="128" height="128" > </a> </td>
                    {% endfor %}
                 </tr>
             {% endfor %}
