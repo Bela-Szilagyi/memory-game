@@ -79,7 +79,7 @@ def click(id):
             if i == second:
                 temp_table[i] = second_guessed_animal
         print_table(temp_table)
-        if first_guessed_animal == second_guessed_animal and first_guessed_animal[-1] != second_guessed_animal[-1]:
+        if first_guessed_animal[:-1] == second_guessed_animal[:-1] and first_guessed_animal[-1] != second_guessed_animal[-1]:
                 found += 1
                 for i in range(len(temp_table)):
                     table[i] = temp_table[i]
