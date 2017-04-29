@@ -44,7 +44,7 @@ def list():
         return add_new_story()
     else:
         init()
-        return render_template('table.html', table=table, rows=rows, found=found)
+        return render_template('table.html', table=table, rows=rows, found=found, message='Make your first guess!')
 
 
 @app.route('/click/<id>')
@@ -57,9 +57,6 @@ def click(id):
     global table
     global rows
     print(id)
-    if found == 8:
-        init()
-        return redirect('/')
     if first_guess:
         first = int(id)
         first_guessed_animal = animals_dict.get(first)
@@ -71,7 +68,7 @@ def click(id):
                 temp_table.append(table[i])
         first_guess = False
         print_table(temp_table)
-        return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal, second_guessed_animal=None)
+        return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal='-', message='What\'s your second guess?')
     else:
         second = int(id)
         second_guessed_animal = animals_dict.get(second)
@@ -81,18 +78,21 @@ def click(id):
         print_table(temp_table)
         if first_guessed_animal[:-1] == second_guessed_animal[:-1] and first_guessed_animal[-1] != second_guessed_animal[-1]:
                 found += 1
+                if found == 8:
+                    init()
+                    return redirect('/')
                 for i in range(len(temp_table)):
                     table[i] = temp_table[i]
                 print('Nice guess! ')
                 first_guess = True
                 print_table(temp_table)
-                return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal, second_guessed_animal=second_guessed_animal)
+                return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='Nice guess!')
         else:
                 print('Wrong! Press any key to try again! ')
                 print_table(table)
                 first_guess = True
                 print_table(temp_table)
-                return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal, second_guessed_animal=second_guessed_animal)
+                return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='Wrong! Try again!')
 
 
 if __name__ == '__main__':
