@@ -36,7 +36,7 @@
             {% for row in range(rows) %}
                 <tr>   
                     {% for cell in range(rows) %}
-                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell][:-1]|string)+'.jpg' ) }} width="80" height="80" > </a> </td>
+                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell][:-1]|string)+'.jpg' ) }} width={{ size }} height= {{ size }} > </a> </td>
                    {% endfor %}
                 </tr>
             {% endfor %}
