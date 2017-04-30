@@ -8,8 +8,13 @@ def init():
     ''' animals = ['dog1', 'cat1', 'hippo1', 'bunny1', 'horse1', 'hedgehog1', 'wombat1', 'porcupine1',
                    'dog2', 'cat2', 'hippo2', 'bunny2', 'horse2', 'hedgehog2', 'wombat2', 'porcupine2']'''
     animals_init = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine']
+    animals_init_18 = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine',
+                       'polar bear', 'black bear', 'mouse', 'dolphin', 'chipmunk', 'penguin', 'orangutan',
+                       'kangaroo', 'elephant', 'chimp']
+    animals_init_18_sample = random.sample(animals_init_18, 8)
     animals = []
-    for animal in animals_init:
+    # for animal in animals_init:
+    for animal in animals_init_18_sample:
         animals.append(animal + '1')
         animals.append(animal + '2')
     print(animals)
