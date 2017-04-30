@@ -11,7 +11,8 @@ def init():
     animals_init_18 = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine',
                        'polar bear', 'black bear', 'mouse', 'dolphin', 'chipmunk', 'penguin', 'orangutan',
                        'kangaroo', 'elephant', 'chimp']
-    animals_init_18_sample = random.sample(animals_init_18, 8)
+    # animals_init_18_sample = random.sample(animals_init_18, 8)
+    animals_init_18_sample = random.sample(animals_init_18, len(animals_init_18))
     animals = []
     # for animal in animals_init:
     for animal in animals_init_18_sample:
@@ -52,7 +53,7 @@ def print_table(table_to_print):
 @app.route('/', methods=['GET', 'POST'])
 def list():
     if request.method == "POST":
-        return add_new_story()
+        return None
     else:
         init()
         return render_template('table.html', table=table, rows=rows, found=found, message='Make your first guess!')
@@ -68,7 +69,7 @@ def click(id):
     global table
     global rows
     print(id)
-    if found == 8:
+    if found == 18:     #6
         init()
         return redirect('/')
     if first_guess:
@@ -97,8 +98,8 @@ def click(id):
                 print('Nice guess! ')
                 first_guess = True
                 print_table(temp_table)
-                if found == 8:
-                    return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='You won! Click on any tile to play again!')
+                if found == 18:  #8
+                    return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='You won! Click to play again!')
                 else:
                     return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='Nice guess!')
         else:
