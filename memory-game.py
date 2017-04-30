@@ -5,8 +5,14 @@ app = Flask(__name__)
 
 def init():
     global animals
-    animals = ['dog1', 'cat1', 'hippo1', 'bunny1', 'horse1', 'hedgehog1', 'wombat1', 'porcupine1',
-               'dog2', 'cat2', 'hippo2', 'bunny2', 'horse2', 'hedgehog2', 'wombat2', 'porcupine2']
+    ''' animals = ['dog1', 'cat1', 'hippo1', 'bunny1', 'horse1', 'hedgehog1', 'wombat1', 'porcupine1',
+                   'dog2', 'cat2', 'hippo2', 'bunny2', 'horse2', 'hedgehog2', 'wombat2', 'porcupine2']'''
+    animals_init = ['dog', 'cat', 'hippo', 'bunny', 'horse', 'hedgehog', 'wombat', 'porcupine']
+    animals = []
+    for animal in animals_init:
+        animals.append(animal + '1')
+        animals.append(animal + '2')
+    print(animals)
     # animals = ['dog', 'cat', 'dog', 'cat']
     animals = random.sample(animals, len(animals))
     global animals_dict
@@ -57,6 +63,9 @@ def click(id):
     global table
     global rows
     print(id)
+    if found == 8:
+        init()
+        return redirect('/')
     if first_guess:
         first = int(id)
         first_guessed_animal = animals_dict.get(first)
@@ -78,15 +87,15 @@ def click(id):
         print_table(temp_table)
         if first_guessed_animal[:-1] == second_guessed_animal[:-1] and first_guessed_animal[-1] != second_guessed_animal[-1]:
                 found += 1
-                if found == 8:
-                    init()
-                    return redirect('/')
                 for i in range(len(temp_table)):
                     table[i] = temp_table[i]
                 print('Nice guess! ')
                 first_guess = True
                 print_table(temp_table)
-                return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='Nice guess!')
+                if found == 8:
+                    return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='You won! Click on any tile to play again!')
+                else:
+                    return render_template('table.html', table=temp_table, rows=rows, found=found, first_guess=first_guess, first_guessed_animal=first_guessed_animal[:-1], second_guessed_animal=second_guessed_animal[:-1], message='Nice guess!')
         else:
                 print('Wrong! Press any key to try again! ')
                 print_table(table)
