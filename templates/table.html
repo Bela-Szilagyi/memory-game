@@ -15,6 +15,19 @@
 <h3>Memory game</h3>
 </div>
 
+    <div class="main">
+
+        <table border=1 align=center >
+            {% for row in range(rows) %}
+                <tr>   
+                    {% for cell in range(rows) %}
+                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell][:-1]|string)+'.jpg' ) }} width={{ size }} height= {{ size }} > </a> </td>
+                   {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+        
     <div class="sideright">
     <!-- <form action="/" method="post">
         <input type="submit" value="continue" id="continue" name="continue"> 
@@ -34,19 +47,7 @@
         <p> {{ found }} </p>
     </div>
 
-    <div class="main">
-
-        <table border=1 >
-            {% for row in range(rows) %}
-                <tr>   
-                    {% for cell in range(rows) %}
-                        <td> <a href="/click/{{ rows*row+cell }}" > <img src={{ url_for("static", filename=(table[rows*row+cell][:-1]|string)+'.jpg' ) }} width={{ size }} height= {{ size }} > </a> </td>
-                   {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
-
-    </form>
+    <!-- </form> -->
     </div>
 
 </body>

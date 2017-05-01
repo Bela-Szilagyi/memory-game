@@ -14,7 +14,7 @@ def init(level):
     # animals_init_18_sample = random.sample(animals_init_18, 8)
     global size
     if level == 'hard':
-        size= 80
+        size = 80
         animals_init_18_sample = random.sample(animals_init_18, len(animals_init_18))
     elif level == 'easy':
         size = 120

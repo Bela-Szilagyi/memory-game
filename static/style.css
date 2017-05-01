@@ -20,7 +20,7 @@ border-radius: 5px;
 padding: 5px; 
 list-style-type: none; 
 text-align: center; 
-background-color: #e5e4d7; 
+background-color: #F7D08A; 
 margin: 10px;
 border-radius: 5px;
 
@@ -35,24 +35,22 @@ display: inline;
 .main {
 background-color: #F7D08A;
 margin-left: 10px;
-margin-right: 520px;
-margin-top: 10px;
+margin-right: 10px;
+margin-top: 0px;
 margin-bottom: 10px;
 border-radius: 5px;
 padding: 20px;
 font-size: 110%;
+float: left;
 }
 
 .sideright {
 background-color: #F7D08A;
 font-size: 105%;
 padding: 20px;
-
-width:180px;
-float: right;
 border-radius: 5px;
-margin-left:10px; margin-right:10px; margin-top:0px; margin-bottom:10px;;
-clear:right;
+margin-left:0px; margin-right:10px; margin-top:0px; margin-bottom:10px;;
+float: left;
 }
 
 
