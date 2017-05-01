@@ -5,7 +5,7 @@
 <head>
 
    <title> Memory game </title>
-   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style5.css') }}">
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
 
 </head>
 
@@ -24,10 +24,14 @@
             First guess 
             {% endif %}
         </p> -->
-        <p> Found: {{ found }} </p>
-        <p> {{ message }} </p>
+        <h2> {{ message }} </h2>
         <p> First guess: {{ first_guessed_animal }} </p>
         <p> Second guess: {{ second_guessed_animal }} </p>
+    </div>
+
+    <div class="sideright">
+        <h2> Found:</h2>
+        <p> {{ found }} </p>
     </div>
 
     <div class="main">

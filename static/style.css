@@ -20,7 +20,7 @@ border-radius: 5px;
 padding: 5px; 
 list-style-type: none; 
 text-align: center; 
-background-color: #000; 
+background-color: #e5e4d7; 
 margin: 10px;
 border-radius: 5px;
 
@@ -32,25 +32,10 @@ display: inline;
 
 } 
 
-#navbar ul li a { 
-	
-text-decoration: none; 
-font-family:Arial;
-padding: .2em 1em; 
-color: #fff; 
-background-color: #000; 
-} 
-
-#navbar ul li a:hover { 
-
-color: #000; 
-background-color: #fff; 
-} 
-
 .main {
 background-color: #F7D08A;
 margin-left: 10px;
-margin-right: 10px;
+margin-right: 520px;
 margin-top: 10px;
 margin-bottom: 10px;
 border-radius: 5px;
@@ -62,7 +47,7 @@ font-size: 110%;
 background-color: #F7D08A;
 font-size: 105%;
 padding: 20px;
-padding-right: 450px;
+
 width:180px;
 float: right;
 border-radius: 5px;
@@ -70,25 +55,6 @@ margin-left:10px; margin-right:10px; margin-top:0px; margin-bottom:10px;;
 clear:right;
 }
 
-.button {
-    background-color: #5B5941;
-    border: none;
-    color: #E3F09B;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition-duration: 0.4s;
-}
-
-.button:hover {
-    background-color: #E3F09B; 
-    color: #5B5941;
-}
 
 /* ================== HEADINGS SECTION ========= */
 
@@ -104,4 +70,9 @@ margin: 0px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+h2 {
+font-size: 120%;
+color: e5e4d7;
 }

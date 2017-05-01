@@ -5,7 +5,7 @@
 <head>
 
    <title> Memory game </title>
-   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style6.css') }}">
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
 
 </head>
 
@@ -17,16 +17,12 @@
 </div>
 
 <div id="navbar">
-
+   <form action="/level" method="POST">
    <ul>
-   <li>
-    <form action="/level" method="POST">
-        <input type="radio" name="level" value="easy" > 4x4<br>
-        <input type="radio" name="level" value="hard" checked> 6x6<br>
-        <input type="submit" value="Submit">
-    </form>
-   </li> 
-
+        <li> <input type="radio" name="level" value="hard" checked> 6x6</li>
+        <li> <input type="radio" name="level" value="easy" > 4x4 </li>
+   <li> <input type="submit" value="Play"></li> 
+   </form>
 </div>
 
 </body>
